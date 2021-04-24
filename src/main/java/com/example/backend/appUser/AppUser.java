@@ -3,6 +3,7 @@ package com.example.backend.appUser;
 import com.example.backend.entity.BillingAdress;
 import com.example.backend.entity.Cart;
 import com.example.backend.entity.DeliveryAdress;
+import com.example.backend.entity.Rating;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import javax.persistence.*;
@@ -49,6 +51,9 @@ public class AppUser implements UserDetails {
     @OneToMany(mappedBy = "appUser")
     private Set<Cart> carts;
 
+    @OneToMany(mappedBy = "appUser")
+    private Set<Rating> ratings;
+
     @OneToOne()
     @JoinColumn(name = "BILLING_ADRESS_id")
     private BillingAdress billingAdress;
@@ -56,6 +61,8 @@ public class AppUser implements UserDetails {
     @OneToOne()
     @JoinColumn(name = "DELIVERY_ADRESS_id")
     private DeliveryAdress deliveryAdress;
+
+
 
 
     public AppUser(String firstName,
