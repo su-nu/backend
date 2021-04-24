@@ -1,5 +1,6 @@
 package com.example.backend.appUser;
 
+import com.example.backend.entity.Cart;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Set;
 
 
 @Getter
@@ -19,6 +21,7 @@ import java.util.Collections;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity
+@Table(name = "APP_USER")
 public class AppUser implements UserDetails {
 
     @Id
@@ -40,6 +43,10 @@ public class AppUser implements UserDetails {
     private AppUserRole appUserRole;
     private Boolean locked;
     private Boolean enabled;
+
+    @OneToMany(mappedBy = "appUser")
+    private Set<Cart> carts;
+
 
     public AppUser(String firstName,
                    String lastName,

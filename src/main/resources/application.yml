@@ -6,7 +6,7 @@ server:
 spring:
   datasource:
     password: password
-    url: jdbc:postgresql://localhost:5433/registration
+    url: jdbc:postgresql://localhost:5433/senitex
     username: postgres
   jpa:
     hibernate:
