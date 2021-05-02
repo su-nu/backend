@@ -11,8 +11,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
-@Table(name = "BILLING_ADRESS")
-public class BillingAdress {
+@Table(name = "BILLING_ADDRESS")
+public class BillingAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,15 +25,15 @@ public class BillingAdress {
     private String locus;
     private String country;
 
-    @OneToOne(mappedBy = "billingAdress")
+    @OneToOne(mappedBy = "billingAddress")
     private AppUser appUser;
 
-    public BillingAdress(String street,
-                         String streetNr,
-                         String addition,
-                         String plz,
-                         String locus,
-                         String country) {
+    public BillingAddress(String street,
+                          String streetNr,
+                          String addition,
+                          String plz,
+                          String locus,
+                          String country) {
         this.street = street;
         this.streetNr = streetNr;
         this.addition = addition;

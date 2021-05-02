@@ -1,6 +1,6 @@
 package com.example.backend.appUser;
 
-import com.example.backend.entity.BillingAdress;
+import com.example.backend.entity.BillingAddress;
 import com.example.backend.entity.Cart;
 import com.example.backend.entity.DeliveryAdress;
 import com.example.backend.entity.Rating;
@@ -11,7 +11,6 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import javax.persistence.*;
@@ -55,11 +54,11 @@ public class AppUser implements UserDetails {
     private Set<Rating> ratings;
 
     @OneToOne()
-    @JoinColumn(name = "BILLING_ADRESS_id")
-    private BillingAdress billingAdress;
+    @JoinColumn(name = "BILLING_ADDRESS_id")
+    private BillingAddress billingAddress;
 
     @OneToOne()
-    @JoinColumn(name = "DELIVERY_ADRESS_id")
+    @JoinColumn(name = "DELIVERY_ADDRESS_id")
     private DeliveryAdress deliveryAdress;
 
 

@@ -1,8 +1,8 @@
 package com.example.backend.controller;
 
 
-import com.example.backend.entity.BillingAdress;
-import com.example.backend.request.BillingAdressRequest;
+import com.example.backend.entity.BillingAddress;
+import com.example.backend.request.BillingAddressRequest;
 import com.example.backend.service.BillingAddressService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +15,9 @@ public class BillingAddressController {
     private final BillingAddressService billingAddressService;
 
     @PostMapping("/create")
-    public String create(@RequestBody BillingAdressRequest request) {
+    public String create(@RequestBody BillingAddressRequest request) {
 
-
-        return billingAddressService.create(new BillingAdress(
+        return billingAddressService.create(new BillingAddress(
                 request.getStreet(),
                 request.getStreetNr(),
                 request.getAddition(),
@@ -39,7 +38,7 @@ public class BillingAddressController {
     }
 
     @PutMapping("put/{id}")
-    public String putById(@PathVariable ("id") Long id, @RequestBody BillingAdressRequest request) {
+    public String putByid(@PathVariable ("id") Long id, @RequestBody BillingAddressRequest request) {
         return billingAddressService.putById(id, request);
     }
 }
