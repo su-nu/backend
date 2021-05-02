@@ -10,14 +10,14 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class BillingAdressService {
+public class BillingAddressService {
 
     private final BillingAdressRepository billingAdressRepository;
 
-    public String create(BillingAdress billingAdressRequest) {
+    public String create(BillingAdress billingAddressesRequest) {
 
         try {
-            BillingAdress billingAdress = billingAdressRepository.save(billingAdressRequest);
+            billingAdressRepository.save(billingAddressesRequest);
             return "created succeed";
         } catch (Exception e) {
             return "create failed";
@@ -26,27 +26,25 @@ public class BillingAdressService {
     }
 
     public String getById(Long id) {
-        Optional<BillingAdress> billingAdressData = billingAdressRepository.findById(id);
-        if(billingAdressData.isPresent()){
-            return billingAdressData.get().getStreet();
-        }
-        else return "get failed";
+        Optional<BillingAdress> billingAddressesData = billingAdressRepository.findById(id);
+        if (billingAddressesData.isPresent()) {
+            return billingAddressesData.get().getStreet();
+        } else return "get failed";
     }
 
     public String deleteById(Long id) {
-        try{
+        try {
             billingAdressRepository.deleteById(id);
             return "delete okay";
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return "delete failed";
         }
     }
 
-    public String putByid(Long id, BillingAdressRequest request) {
-       Optional<BillingAdress> billingAdressData = billingAdressRepository.findById(id);
+    public String putById(Long id, BillingAdressRequest request) {
+        Optional<BillingAdress> billingAdressData = billingAdressRepository.findById(id);
 
-        if(billingAdressData.isPresent()){
+        if (billingAdressData.isPresent()) {
             BillingAdress billingAdress = billingAdressData.get();
             billingAdress.setStreet(request.getStreet());
             billingAdress.setStreetNr(request.getStreetNr());
@@ -56,7 +54,7 @@ public class BillingAdressService {
             billingAdress.setCountry(request.getCountry());
             billingAdressRepository.save(billingAdress);
             return "put okay";
-        }else {
+        } else {
             return "put failed";
         }
     }
