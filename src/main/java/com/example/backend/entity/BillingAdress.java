@@ -2,7 +2,6 @@ package com.example.backend.entity;
 
 
 import com.example.backend.appUser.AppUser;
-import com.example.backend.request.BillingAdressRequest;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -43,4 +42,70 @@ public class BillingAdress {
         this.country = country;
 
     }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getStreetNr() {
+        return streetNr;
+    }
+
+    public void setStreetNr(String streetNr) {
+        this.streetNr = streetNr;
+    }
+
+    public String getAddition() {
+        return addition;
+    }
+
+    public void setAddition(String addition) {
+        this.addition = addition;
+    }
+
+    public String getPlz() {
+        return plz;
+    }
+
+    public void setPlz(String plz) {
+        this.plz = plz;
+    }
+
+    public String getLocus() {
+        return locus;
+    }
+
+    public void setLocus(String locus) {
+        this.locus = locus;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
+
 }
