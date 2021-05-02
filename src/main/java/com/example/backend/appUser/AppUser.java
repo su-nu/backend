@@ -2,7 +2,7 @@ package com.example.backend.appUser;
 
 import com.example.backend.entity.BillingAddress;
 import com.example.backend.entity.Cart;
-import com.example.backend.entity.DeliveryAdress;
+import com.example.backend.entity.DeliveryAddress;
 import com.example.backend.entity.Rating;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -59,7 +59,7 @@ public class AppUser implements UserDetails {
 
     @OneToOne()
     @JoinColumn(name = "DELIVERY_ADDRESS_id")
-    private DeliveryAdress deliveryAdress;
+    private DeliveryAddress deliveryAddress;
 
 
 

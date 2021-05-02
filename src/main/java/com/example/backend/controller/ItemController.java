@@ -32,7 +32,7 @@ public class ItemController {
     }
 
     @PutMapping("/update/{id}")
-    public String deleteById(@PathVariable ("id") Long id, @RequestBody ItemRequest itemRequest) {
+    public String updateById(@PathVariable ("id") Long id, @RequestBody ItemRequest itemRequest) {
         return itemService.updateById(id, itemRequest);
     }
 
